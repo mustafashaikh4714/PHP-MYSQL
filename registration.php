@@ -13,17 +13,19 @@ if(!$connection) {
 mysqli_select_db($connection, 'registration');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //ACCESS FORM DATA
-$username = $_POST["user"];
-$pass = $_POST["pass"];
+$username = $_POST['user'];
+$password = $_POST['pass'];
 
-echo "$username";
-echo "$pass";
-$q = "select * from `signin` where `name` = '".$username."' && `password` = '".$pass."'";
-if(mysqli_query($connection, $q) ) {
-    echo "Duplicate";
+
+$q = " select * from signin where name = '$username' && password = '$password' ";
+$res = mysqli_query($connection, $q);
+$num = mysqli_num_rows($res);
+echo $num;
+if($num) {
+    echo "Duplicate Data";
 } else {
-    $qy = "insert into `signin` (`name` , `password`) values ('".$username."' , '".$pass."')";
-    mysqli_query($connection, $qy );
-}
+    $qy = "insert into signin(name , password) values ('$username' , '$password') ";
+    mysqli_query($connection, $qy);
+ }
 }
 ?>

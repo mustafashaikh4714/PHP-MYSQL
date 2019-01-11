@@ -30,7 +30,7 @@
 
             <div class="col-lg-6">
                 <h2>Sign in</h2>
-                <form action="registration.php" action="post">
+                <form action="registration.php" method="post">
                     <div class="form-group">
                         <label>Username</label>
                         <input type="text" name="user" class="form-control">
@@ -47,3 +47,4 @@
 </body>
 
 </html>
+<!-- $qy = "insert into signin (name , password) values ('".$username."' , '".$pass."')"; -->
