@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<?php 
+    <?php 
 session_start();
 
 //CONNECT TO DATABASE
@@ -21,25 +21,14 @@ $q = " select * from signin where name = '$username' && password = '$password' "
 $result = mysqli_query($connection, $q);
 $num = mysqli_num_rows($result);
 
-if($num) {
-    ?>
-
-    <div class="container">
-    <h2 class = 'text-warning'>User Already Exists</h2>
-     <a href = 'login.php'>TRY AGAIN</a>
-    </div>
-
-    <?php
-
+if($num == 1) {
+ $_SESSION['user'] = $username;
+ header('location:home.php');
 } else {
-    $qy = "insert into signin(name , password) values ('$username' , '$password') ";
-    mysqli_query($connection, $qy);
-
     ?>
-
    <div class="container">
-   <h2 class = 'text-success'>Registration Completed..</h2>
-    <a href = 'login.php'>LOGIN TO CONTINUE</a>
+   <h2 class="text-warning">No Such User Exists</h2>
+    <a href='login.php'>TRY AGAIN</a>
    </div>
 
     <?php
@@ -47,5 +36,5 @@ if($num) {
 }
 ?>
 
-</html>
 </body>
+</html>

@@ -15,21 +15,21 @@
         <div class="row">
             <div class="col-lg-6">
                 <h2>Login form</h2>
-                <form action="validation.php" action="post">
+                <form action="validation.php" method="post">
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" class="form-control">
+                        <input type="text" name="user" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="pass" class="form-control">
                         </div>
                         <button type = "submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
 
             <div class="col-lg-6">
-                <h2>Sign in</h2>
+                <h2>Sign up</h2>
                 <form action="registration.php" method="post">
                     <div class="form-group">
                         <label>Username</label>
@@ -39,7 +39,7 @@
                             <label>Password</label>
                             <input type="password" name="pass" class="form-control">
                         </div>
-                        <button type = "submit" class="btn btn-primary">Sign in</button>
+                        <button type = "submit" class="btn btn-primary">Sign Up</button>
                 </form>
             </div>
         </div>
